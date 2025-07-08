@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@/lib/react-icons";
 import { useState } from "react";
 // accepted types = "email" | "password" | "text" | "number"
 import { FaEye } from "react-icons/fa";
@@ -49,9 +50,15 @@ const TextInput = ({
               onClick={() => setShowPassword((prev) => !prev)}
             >
               {showPassword ? (
-                <FaEye className="w-6 h-6 text-[#aaa] cursor-pointer" />
+                <Icon
+                  name="eye"
+                  className="w-6 h-6 text-[#aaa] cursor-pointer"
+                />
               ) : (
-                <FaEyeSlash className="w-6 h-6 text-[#aaa] cursor-pointer" />
+                <Icon
+                  name="eyeSlash"
+                  className="w-6 h-6 text-[#aaa] cursor-pointer"
+                />
               )}
             </button>
           </div>

@@ -1,15 +1,16 @@
+import { Icon } from "@/lib/react-icons";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const oauthProviders = [
   {
     name: "github",
     label: "Github",
-    icon: <FaGithub className="w-5 h-5" />,
+    icon: <Icon name="github" className="w-5 h-5" />,
   },
   {
     name: "google",
     label: "Google",
-    icon: <FaGoogle className="w-5 h-5" />,
+    icon: <Icon name="google" className="w-5 h-5" />,
   },
 ];
 
