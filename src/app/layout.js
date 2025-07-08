@@ -13,7 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Auth Services",
+  title: {
+    default: "Auth Services",
+    template: "Auth Services | %s",
+  },
   description: "Auth services using next auth, Github and Google providers",
 };
 
@@ -25,7 +28,6 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         <div className="w-full h-screen">{children}</div>
-
       </body>
     </html>
   );

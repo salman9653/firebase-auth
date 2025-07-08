@@ -10,7 +10,7 @@ const Navbar = async () => {
       <nav className="flex justify-between items-center">
         <Link href="/">
           <h1 className="text-2xl text-black font-extrabold uppercase">
-            <span className="text-red-500">O</span>Auth
+            <span className="text-red-500">FireBase</span>Auth
           </h1>
         </Link>
         <div className="flex items-center gap-5 text-black">

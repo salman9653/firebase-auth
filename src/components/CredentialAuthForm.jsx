@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 import Button from "./formComponents/Button";
 import TextInput from "./formComponents/TextInput";
 import { credentialLogin, credentialRegister } from "@/actions";
@@ -18,7 +18,7 @@ const CredentialAuthForm = ({ type }) => {
   );
   return (
     <form
-      action={formAction}
+      // action={formAction}
       className="w-full py-6 px-6 rounded-xl flex flex-col gap-4 justify-center"
     >
       {type === "register" && (
@@ -51,7 +51,6 @@ const CredentialAuthForm = ({ type }) => {
         icon={<MdLock className="w-6 h-6 text-[#aaa]" />}
       />
       <Button version="primary" className="mt-4" type="submit">
-        {type}
         {state.pending ? "Loading" : type}
       </Button>
     </form>

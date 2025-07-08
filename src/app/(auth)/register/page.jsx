@@ -1,8 +1,7 @@
 import CredentialAuthForm from "@/components/CredentialAuthForm";
-import OAuthLogin from "@/components/OAuthLogin";
 
 export const metadata = {
-  title: "Auth Services | Register",
+  title: "Register",
   description: "Auth services using next auth, Github and Google providers",
 };
 const Register = () => {

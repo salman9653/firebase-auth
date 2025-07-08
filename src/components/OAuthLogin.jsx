@@ -19,10 +19,10 @@ const OAuthLogin = () => {
       {oauthProviders.map(({ name, label, icon }) => (
         <form
           key={name}
-          action={async () => {
-            // "use server";
-            // await signIn(name, { redirectTo: "/" });
-          }}
+          // action={async () => {
+          // "use server";
+          // await signIn(name, { redirectTo: "/" });
+          // }}
         >
           <button
             type="submit"
