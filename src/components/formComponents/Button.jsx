@@ -9,7 +9,7 @@ const Button = ({
   ...props
 }) => {
   const baseStyles =
-    "px-4 py-2 rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-opacity-75 transition ease-in-out duration-150 cursor-pointer capitalize";
+    "px-4 py-2 rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-opacity-75 transition ease-in-out duration-150 disabled:cursor-not-allowed cursor-pointer capitalize";
 
   const versionStyles = {
     primary: "bg-[#444] text-white hover:bg-[#4a4a4a] focus:ring-[#444]",

@@ -1,4 +1,7 @@
+"use client";
+import authService from "@/lib/firebase/authService";
 import { Icon } from "@/lib/react-icons";
+import { redirect } from "next/navigation";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const oauthProviders = [
@@ -14,16 +17,26 @@ const oauthProviders = [
   },
 ];
 
+const action = async (name) => {
+  if (name === "github") {
+    await authService?.signInWithGitHub();
+    redirect("/dashboard");
+  }
+  if (name === "google") {
+    await authService?.signInWithGoogle();
+    redirect("/dashboard");
+  }
+};
+
 const OAuthLogin = () => {
   return (
     <div className="flex gap-5">
       {oauthProviders.map(({ name, label, icon }) => (
         <form
           key={name}
-          // action={async () => {
-          // "use server";
-          // await signIn(name, { redirectTo: "/" });
-          // }}
+          action={() => {
+            action(name);
+          }}
         >
           <button
             type="submit"

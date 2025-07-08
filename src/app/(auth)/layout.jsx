@@ -1,4 +1,4 @@
-import OAuthLogin from "@/components/OAuthLogin";
+import OAuthLogin from "@/components/authForm/OAuthLogin";
 
 export default function RootLayout({ children }) {
   return (

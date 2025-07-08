@@ -1,21 +1,30 @@
 "use client";
 
-import { useActionState } from "react";
-import Button from "./formComponents/Button";
-import TextInput from "./formComponents/TextInput";
-import { credentialLogin, credentialRegister } from "@/actions";
+import { useActionState, useEffect } from "react";
+import TextInput from "../formComponents/TextInput";
+import { credentialLogin, credentialRegister } from "@/actions/authActions";
 import { Icon } from "@/lib/react-icons";
-// import { useFormStatus } from "react-dom";
+import SubmitButton from "./SubmitButton";
+import { useRouter } from "next/navigation";
 
 const CredentialAuthForm = ({ type }) => {
-  // const { pending } = useFormStatus();
   const [state, formAction] = useActionState(
     type === "register" ? credentialRegister : credentialLogin,
     {
+      success: null,
       message: "",
-      errors: {},
+      errors: null,
     }
   );
+
+  const router = useRouter();
+  useEffect(() => {
+    if (state?.success) {
+      // Optional: Show success toast
+      router.push("/dashboard");
+    }
+  }, [state, router]);
+
   return (
     <form
       action={formAction}
@@ -45,15 +54,17 @@ const CredentialAuthForm = ({ type }) => {
         label="password"
         name="password"
         type="password"
-        placeholder="• • • • • • • •"
+        placeholder="••••••••"
         className="border-[#444] bg-[#333]"
         error={state?.errors?.password}
         icon={<Icon name="password" className="w-6 h-6 text-[#aaa]" />}
       />
-      <Button version="primary" className="mt-4" type="submit">
-        {/* {state.pending ? "Loading" : type} */}
-        {type}
-      </Button>
+      {state?.errors?.other && (
+        <span className="w-full text-center text-sm text-red-500">
+          {state?.errors?.other}
+        </span>
+      )}
+      <SubmitButton label={type} />
     </form>
   );
 };

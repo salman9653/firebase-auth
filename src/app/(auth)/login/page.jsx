@@ -1,4 +1,4 @@
-import CredentialAuthForm from "@/components/CredentialAuthForm";
+import CredentialAuthForm from "@/components/authForm/CredentialAuthForm";
 
 export const metadata = {
   title: "Login",

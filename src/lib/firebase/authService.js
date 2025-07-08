@@ -8,7 +8,8 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithPopup,
-  signOut
+  signOut,
+  updateProfile
 } from "firebase/auth";
 
 import { app } from "./firebaseConfig";
@@ -94,7 +95,7 @@ export class FirebaseAuthService {
   async signInWithGoogle() {
     try {
       const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(this.auth, provider);
       return result.user;
     } catch (error) {
       throw error;
@@ -105,7 +106,7 @@ export class FirebaseAuthService {
   async signInWithGitHub() {
     try {
       const provider = new GithubAuthProvider();
-      const result = await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(this.auth, provider);
       return result.user;
     } catch (error) {
       throw error;
